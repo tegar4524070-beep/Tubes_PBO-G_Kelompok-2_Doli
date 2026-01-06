@@ -1,0 +1,92 @@
+/* ====== GLOBAL STYLE ====== */
+
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: #f5f6fa;
+}
+
+/* ====== CARD CONTAINER ====== */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);
+}
+
+/* ====== TITLE TEXT ====== */
+.title-text {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d3436;
+}
+
+/* ====== LABEL FIELD TITLE ====== */
+.label-header {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #636e72;
+}
+
+/* ====== VALUE LABEL ====== */
+.label-value {
+    -fx-font-size: 16px;
+    -fx-text-fill: #2d3436;
+}
+
+/* ====== TABLE STYLE ====== */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #0984e3;
+}
+
+.table-view .column-header, .table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f1f2f6;
+}
+
+/* Hover effect */
+.table-row-cell:hover {
+    -fx-background-color: #dfe6e9;
+}
+
+/* ====== BUTTON STYLE ====== */
+.button-primary {
+    -fx-background-color: linear-gradient(to right, #0984e3, #74b9ff);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 16;
+}
+
+.button-primary:hover {
+    -fx-background-color: linear-gradient(to right, #74b9ff, #0984e3);
+    -fx-cursor: hand;
+}
+
+.button-danger {
+    -fx-background-color: #d63031;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 16;
+}
+
+.button-danger:hover {
+    -fx-background-color: #ff7675;
+    -fx-cursor: hand;
+}

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.Tubes_PBO.controllers.HomeCustomerController"
+            prefHeight="697.0" prefWidth="800.0">
+
+   <children>
+
+      <!-- TITLE -->
+      <Label layoutX="269" layoutY="34" text="DONAT KELILING (DOLI)">
+         <font><Font name="Arial Black" size="18"/></font>
+      </Label>
+
+      <Label layoutX="350" layoutY="71" text="SHOP ALL">
+         <font><Font name="Arial Black" size="14"/></font>
+      </Label>
+
+       <Label layoutX="339.0" layoutY="107.0" text="Collection Tags">
+            <font><Font name="Arial Black" size="12.0"/></font>
+        </Label>
+
+      <!-- TOP BUTTON -->
+      <Button layoutX="174" layoutY="153" prefWidth="99" text="PRODUCTS" onAction="#goToHome"/>
+        <Button layoutX="345" layoutY="153" prefWidth="99" text="ORDER" onAction="#Order"/>
+        <Button layoutX="512" layoutY="153" prefWidth="99" text="HISTORY" onAction="#goToHistory"/>
+        <Button text="Logout"
+        onAction="#handleLogout"
+        style="-fx-background-color: #f44336;
+               -fx-text-fill: white;" />
+      
+
+
+      <!-- ================= ROW 1 ================= -->
+
+      <!-- PRODUCT 1 -->
+      <ImageView layoutX="175" layoutY="209" fitHeight="132" fitWidth="140">
+         <image><Image url="@Donat6.png"/></image>
+      </ImageView>
+
+      <Label layoutX="175" layoutY="351" text="Strawberry Shortcake"/>
+      <Label layoutX="175" layoutY="369" text="Rp 20.000"/>
+
+      <Button layoutX="225" layoutY="400"
+              text="BUY"
+              onAction="#buyProduct"
+              userData="1"/>
+
+      <!-- PRODUCT 2 -->
+      <ImageView layoutX="330" layoutY="209" fitHeight="132" fitWidth="140">
+         <image><Image url="@Donat5.png"/></image>
+      </ImageView>
+
+      <Label layoutX="329" layoutY="351" text="Crispy Opor"/>
+      <Label layoutX="330" layoutY="369" text="Rp 25.000"/>
+
+      <Button layoutX="380" layoutY="400"
+              text="BUY"
+              onAction="#buyProduct"
+              userData="2"/>
+
+      <!-- PRODUCT 3 -->
+      <ImageView layoutX="485" layoutY="209" fitHeight="132" fitWidth="140">
+         <image><Image url="@Donat4.png"/></image>
+      </ImageView>
+
+      <Label layoutX="486" layoutY="351" text="Cosmic Brulee"/>
+      <Label layoutX="489" layoutY="369" text="Rp 25.000"/>
+
+      <Button layoutX="530" layoutY="400"
+              text="BUY"
+              onAction="#buyProduct"
+              userData="3"/>
+
+      <!-- ================= ROW 2 ================= -->
+
+      <!-- PRODUCT 4 -->
+      <ImageView layoutX="174" layoutY="440" fitHeight="132" fitWidth="140">
+         <image><Image url="@Donat3.png"/></image>
+      </ImageView>
+
+      <Label layoutX="173" layoutY="578" text="Chocolate Nebula"/>
+      <Label layoutX="175" layoutY="596" text="Rp 20.000"/>
+
+      <Button layoutX="225" layoutY="629"
+              text="BUY"
+              onAction="#buyProduct"
+              userData="4"/>
+
+      <!-- PRODUCT 5 -->
+      <ImageView layoutX="337" layoutY="440" fitHeight="132" fitWidth="140">
+         <image><Image url="@Donat2.png"/></image>
+      </ImageView>
+
+      <Label layoutX="333" layoutY="578" text="Crispy Matcha"/>
+      <Label layoutX="334" layoutY="596" text="Rp 25.000"/>
+
+      <Button layoutX="370" layoutY="629"
+              text="BUY"
+              onAction="#buyProduct"
+              userData="5"/>
+
+      <!-- PRODUCT 6 -->
+      <ImageView layoutX="484" layoutY="440" fitHeight="132" fitWidth="140">
+         <image><Image url="@Donat1.png"/></image>
+      </ImageView>
+
+      <Label layoutX="489" layoutY="578" text="Yellow Yuzu"/>
+      <Label layoutX="491" layoutY="596" text="Rp 30.000"/>
+
+      <Button layoutX="528" layoutY="629"
+              text="BUY"
+              onAction="#buyProduct"
+              userData="6"/>
+
+   </children>
+</AnchorPane>
