@@ -11,16 +11,21 @@ import javafx.stage.Stage;
 
 public class RegisterController {
 
+    // Visibility : Menggunakan Private //
     @FXML private TextField usernameField;
+    // Visibility : Menggunakan Private //
     @FXML private PasswordField passwordField;
     @FXML private PasswordField confirmPasswordField;
+    // Visibility : Menggunakan Private //
     @FXML private ComboBox<String> roleBox;
 
+    // Visibility : Menggunakan Public //
     @FXML
     public void initialize() {
         roleBox.getItems().addAll("customer", "karyawan");
     }
 
+    // Visibility : Menggunakan Private //
     @FXML
     private void handleRegister() {
 
@@ -39,6 +44,7 @@ public class RegisterController {
             return;
         }
 
+        // Asosiasi : Menggunakan UserDAO, Alert, dan Stage //
         boolean success = UserDAO.register(username, password, role);
 
         if (success) {
@@ -51,11 +57,14 @@ public class RegisterController {
 
     @FXML
     private void closePopup() {
+        // Asosiasi : Menggunakan UserDAO, Alert, dan Stage //
         Stage stage = (Stage) usernameField.getScene().getWindow();
         stage.close();
     }
 
+    // Visibility : Menggunakan Private //
     private void showAlert(String msg) {
+        // Asosiasi : Menggunakan UserDAO, Alert, dan Stage //
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setContentText(msg);

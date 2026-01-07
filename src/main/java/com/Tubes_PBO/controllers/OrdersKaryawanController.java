@@ -22,11 +22,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+// Interface : Menggunakan Initializable //
 public class OrdersKaryawanController implements Initializable {
 
+    // Visibility : Menggunakan Private //
     @FXML
     private TableView<Order> tableOrders;
 
+    // Visibility : Menggunakan Private //
     @FXML
     private TableColumn<Order, Integer> colId;
 
@@ -42,20 +45,16 @@ public class OrdersKaryawanController implements Initializable {
     @FXML
     private TableColumn<Order, Void> colAction;
 
+    // Visibility : Menggunakan Private //
     private ObservableList<Order> orderList = FXCollections.observableArrayList();
 
-    // =========================
-    // INIT
-    // =========================
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setupTable();
         loadOrders();
     }
 
-    // =========================
-    // SETUP TABLE
-    // =========================
+    // Visibility : Menggunakan Private //
     private void setupTable() {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colCustomer.setCellValueFactory(new PropertyValueFactory<>("customerId"));
@@ -65,20 +64,18 @@ public class OrdersKaryawanController implements Initializable {
         addActionButton();
     }
 
-    // =========================
-    // LOAD DATA
-    // =========================
+    // Visibility : Menggunakan Private //
     private void loadOrders() {
         orderList.clear();
+        // Asosiasi : Menggunakan DAO, Model, dan Utils //
         List<Order> orders = OrderDAO.getOrdersForKaryawan();
         orderList.addAll(orders);
         tableOrders.setItems(orderList);
     }
 
-    // =========================
-    // ACTION BUTTON COLUMN
-    // =========================
     private void addActionButton() {
+        // Nested Class : Menggunakan TableCell anonymous //
+        // Anonymous Class: Menggunakan new TableCell<>() dan Lambda Expression //
         colAction.setCellFactory(param -> new TableCell<>() {
 
             private final Button btn = new Button("Selesaikan");
@@ -90,12 +87,14 @@ public class OrdersKaryawanController implements Initializable {
                     -fx-font-weight: bold;
                 """);
 
+                // Anonymous Class: Menggunakan new TableCell<>() dan Lambda Expression //
                 btn.setOnAction(event -> {
                     Order order = getTableView().getItems().get(getIndex());
                     completeOrder(order);
                 });
             }
 
+            // Polimorfisme : Menggunakan Override dan casting //
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
@@ -109,10 +108,8 @@ public class OrdersKaryawanController implements Initializable {
         });
     }
 
-    // =========================
-    // COMPLETE ORDER
-    // =========================
    private void completeOrder(Order order) {
+    // Asosiasi : Menggunakan DAO, Model, dan Utils //
     OrderDAO.completeOrder(order.getId());
     tableOrders.getItems().remove(order);
 
@@ -123,14 +120,12 @@ public class OrdersKaryawanController implements Initializable {
         alert.setContentText("Order ID " + order.getId() + " berhasil diselesaikan");
         alert.showAndWait();
 
-        loadOrders(); // refresh table
+        loadOrders();
     }
 
-    // =========================
-// NAVIGATION
-// =========================
 @FXML
 private void goToHome() {
+    // Asosiasi : Menggunakan DAO, Model, dan Utils //
     App.changeScene("/fxml/HomeKaryawan.fxml");
 }
 
@@ -141,7 +136,9 @@ private void goToStock() {
 
 @FXML
 private void handleLogout(ActionEvent event) {
+    // Polimorfisme : Menggunakan Override dan casting //
     Node source = (Node) event.getSource();
+    // Asosiasi : Menggunakan DAO, Model, dan Utils //
     LogoutUtil.logout(source);
 }
 

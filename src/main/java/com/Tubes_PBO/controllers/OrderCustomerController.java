@@ -28,11 +28,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
+// Interface : Menggunakan Initializable //
 public class OrderCustomerController implements Initializable {
 
-    // ======================
-    // FXML COMPONENT
-    // ======================
+    // Visibility : Menggunakan Private //
     @FXML private Label orderNumber;
     @FXML private Label orderTime;
     @FXML private Label orderChannel;
@@ -40,20 +39,17 @@ public class OrderCustomerController implements Initializable {
     @FXML private Label totalLabel;
     @FXML private VBox itemsContainer;
 
+    // Visibility : Menggunakan Private //
     @FXML private Button buyButton;
     @FXML private Button cancelButton;
 
-    // ======================
-    // STATE
-    // ======================
+    // Visibility : Menggunakan Private //
     private Order currentOrder;
 
-    // ======================
-    // INITIALIZE
-    // ======================
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        // Asosiasi : Menggunakan DAO, Model, dan Utils //
         if (UserSession.getUser() == null) {
             System.out.println("❌ USER SESSION NULL!");
             showEmptyOrder();
@@ -62,6 +58,7 @@ public class OrderCustomerController implements Initializable {
         }
 
         int userId = UserSession.getUser().getId();
+        // Asosiasi : Menggunakan DAO, Model, dan Utils //
         currentOrder = OrderDAO.getPendingOrderByUser(userId);
 
         if (currentOrder == null) {
@@ -75,9 +72,7 @@ public class OrderCustomerController implements Initializable {
         enableButtons();
     }
 
-    // ======================
-    // LOAD ORDER INFO
-    // ======================
+    // Visibility : Menggunakan Private //
     private void loadOrderInfo() {
         orderNumber.setText("ORDER #" + currentOrder.getId());
 
@@ -96,12 +91,10 @@ public class OrderCustomerController implements Initializable {
         totalLabel.setText("Rp " + currentOrder.getTotalPrice());
     }
 
-    // ======================
-    // LOAD ORDER ITEMS
-    // ======================
     private void loadOrderItems() {
         itemsContainer.getChildren().clear();
 
+        // Asosiasi : Menggunakan DAO, Model, dan Utils //
         for (OrderItem item : OrderItemDAO.getItemsByOrderId(currentOrder.getId())) {
             Label label = new Label(
                 item.getProductName() +
@@ -117,9 +110,6 @@ public class OrderCustomerController implements Initializable {
         }
     }
 
-    // ======================
-    // BUY / PAY
-    // ======================
     @FXML
 private void payOrder() {
 
@@ -128,7 +118,7 @@ private void payOrder() {
         return;
     }
 
-    // Dialog utama
+    // Polimorfisme : Menggunakan Node, Dialog, dan runtime //
     Dialog<ButtonType> dialog = new Dialog<>();
     dialog.setTitle("Metode Pembayaran");
     dialog.setHeaderText("Pilih metode pembayaran");
@@ -136,9 +126,6 @@ private void payOrder() {
     ButtonType btnOk = new ButtonType("Bayar", ButtonBar.ButtonData.OK_DONE);
     dialog.getDialogPane().getButtonTypes().addAll(btnOk, ButtonType.CANCEL);
 
-    // =========================
-    // UI CONTENT
-    // =========================
     ToggleGroup paymentGroup = new ToggleGroup();
     RadioButton rbCash = new RadioButton("Cash");
     RadioButton rbTransfer = new RadioButton("Transfer Bank");
@@ -155,6 +142,7 @@ private void payOrder() {
     amountField.setPromptText("Masukkan nominal transfer");
     amountField.setDisable(true);
 
+    // Anonymous Class : Menggunakan Lambda EventHandler //
     rbTransfer.setOnAction(e -> {
         bankBox.setDisable(false);
         amountField.setDisable(false);
@@ -175,14 +163,11 @@ private void payOrder() {
     );
     dialog.getDialogPane().setContent(content);
 
-    // =========================
-    // ACTION
-    // =========================
+    // Anonymous Class : Menggunakan Lambda Expression //
     dialog.showAndWait().ifPresent(result -> {
 
         if (result != btnOk) return;
 
-        // CASH
         if (rbCash.isSelected()) {
             OrderDAO.closeOrder(currentOrder.getId());
             showInfo("Pembayaran cash berhasil");
@@ -190,7 +175,6 @@ private void payOrder() {
             return;
         }
 
-        // TRANSFER
         if (bankBox.getValue() == null) {
             showInfo("Pilih bank terlebih dahulu");
             return;
@@ -209,17 +193,12 @@ private void payOrder() {
             return;
         }
 
-        // sukses transfer
         OrderDAO.closeOrder(currentOrder.getId());
         showInfo("Transfer via " + bankBox.getValue() + " berhasil");
         resetOrder();
     });
 }
 
-
-    // ======================
-    // CANCEL ORDER
-    // ======================
     @FXML
     private void cancelOrder() {
 
@@ -239,9 +218,6 @@ private void payOrder() {
         });
     }
 
-    // ======================
-    // RESET UI
-    // ======================
     private void resetOrder() {
         currentOrder = null;
         showEmptyOrder();
@@ -269,17 +245,12 @@ private void payOrder() {
         cancelButton.setDisable(false);
     }
 
-    // ======================
-    // NAVIGATION
-    // ======================
     @FXML
     private void goToHome() {
         App.changeScene("/fxml/HomeCustomer.fxml");
     }
 
-    // ======================
-    // ALERT
-    // ======================
+    // Visibility : Menggunakan Private //
     private void showInfo(String msg) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(msg);
@@ -288,14 +259,16 @@ private void payOrder() {
 
     @FXML
 private void goToHistory() {
+    // Asosiasi : Menggunakan DAO, Model, dan Utils //
     App.changeScene("/fxml/HistoryCustomer.fxml");
 }
 
 @FXML
 private void handleLogout(ActionEvent event) {
+    // Polimorfisme : Menggunakan Node, Dialog, dan runtime //
     Node source = (Node) event.getSource();
+    // Asosiasi : Menggunakan DAO, Model, dan Utils //
     LogoutUtil.logout(source);
 }
-
 
 }

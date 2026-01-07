@@ -1,6 +1,3 @@
-/* ======================================================
-   ROOT / BACKGROUND
-====================================================== */
 .root {
     -fx-background-color: linear-gradient(
         to bottom right,
@@ -11,9 +8,6 @@
     -fx-font-family: "Segoe UI", Arial;
 }
 
-/* ======================================================
-   HEADER (SAMA DENGAN HOME CUSTOMER)
-====================================================== */
 
 .header-title {
     -fx-text-fill: #fefefe;
@@ -41,9 +35,6 @@
     -fx-font-family: "Arial Black";
 }
 
-/* ======================================================
-   LABEL UMUM
-====================================================== */
 Label {
     -fx-text-fill: white;
     -fx-font-size: 13px;
@@ -55,9 +46,6 @@ Label {
     -fx-font-weight: bold;
 }
 
-/* ======================================================
-   BUTTON BASE (NAV + GENERAL)
-====================================================== */
 Button {
     -fx-background-color: #FFD54F;
     -fx-text-fill: #1A237E;
@@ -78,9 +66,6 @@ Button:hover {
     -fx-text-fill: #0D47A1;
 }
 
-/* ======================================================
-   BUY BUTTON
-====================================================== */
 .buy-btn {
     -fx-font-size: 14px;
     -fx-font-weight: 900;
@@ -91,9 +76,6 @@ Button:hover {
     -fx-scale-y: 1.05;
 }
 
-/* ======================================================
-   CANCEL BUTTON
-====================================================== */
 .cancel-btn {
     -fx-background-color: rgba(210, 65, 65, 0.601);
     -fx-text-fill: white;
@@ -103,9 +85,6 @@ Button:hover {
     -fx-background-color: rgb(255, 0, 0);
 }
 
-/* ======================================================
-   LOGOUT BUTTON (SAMA WARNA HOME)
-====================================================== */
 .logout-btn {
     -fx-background-color: #F44336;
     -fx-text-fill: white;
@@ -117,9 +96,6 @@ Button:hover {
     -fx-background-color: #D32F2F;
 }
 
-/* ======================================================
-   ORDER CARD
-====================================================== */
 .order-card {
     -fx-background-color: rgba(255,255,255,0.18);
     -fx-background-radius: 18;
@@ -131,9 +107,6 @@ Button:hover {
     );
 }
 
-/* ======================================================
-   SCROLLPANE
-====================================================== */
 .order-scroll {
     -fx-background-color: transparent;
 }
@@ -142,9 +115,6 @@ Button:hover {
     -fx-background-color: transparent;
 }
 
-/* ======================================================
-   TRANSISI HALUS
-====================================================== */
 Button {
     -fx-transition: all 0.2s ease-in-out;
 }

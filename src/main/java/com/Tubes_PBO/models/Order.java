@@ -4,15 +4,17 @@ import java.sql.Timestamp;
 
 public class Order {
 
-    private int id;           // order_id
-    private int customerId;   // user_id
+    private int id;           
+    private int customerId;   
     private double totalPrice;
     private String status;
     private Timestamp createdAt;
 
+    // Getter //
     public int getId() {
         return id;
     }
+    // Setter //
     public void setId(int id) {
         this.id = id;
     }

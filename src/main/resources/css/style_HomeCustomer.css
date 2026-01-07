@@ -1,6 +1,3 @@
-/* ======================================================
-   ROOT / BACKGROUND 
-====================================================== */
 .root {
     -fx-background-color: linear-gradient(
         to bottom right,
@@ -11,14 +8,10 @@
     -fx-font-family: "Segoe UI", Arial;
 }
 
-/* ======================================================
-   LABEL UMUM
-====================================================== */
 Label {
     -fx-text-fill: #FFFFFF;
 }
 
-/* JUDUL UTAMA */
 Label[text="DONAT KELILING (DOLI)"] {
     -fx-font-size: 24px;
     -fx-font-weight: 900;
@@ -26,22 +19,18 @@ Label[text="DONAT KELILING (DOLI)"] {
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 0, 0, 2, 2);
 }
 
-/* SUBTITLE */
 Label[text="SHOP ALL"] {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #FFECB3;
 }
 
-/* ======================================================
-   BUTTON NAVIGASI ATAS (FIXED)
-====================================================== */
 Button {
-    -fx-background-color: #FFD54F;      /* KUNING */
-    -fx-text-fill: #1A237E;             /* Biru gelap */
+    -fx-background-color: #FFD54F;
+    -fx-text-fill: #1A237E;
     -fx-font-weight: bold;
     -fx-background-radius: 10;
-    -fx-border-color: transparent;      /* ❌ outline ilang */
+    -fx-border-color: transparent;
     -fx-border-width: 0;
     -fx-padding: 8 20;
     -fx-cursor: hand;
@@ -53,14 +42,10 @@ Button {
 }
 
 Button:hover {
-    -fx-background-color: #FFC107;      /* Kuning lebih gelap */
+    -fx-background-color: #FFC107;
     -fx-text-fill: #0D47A1;
 }
 
-
-/* ======================================================
-   LOGOUT BUTTON (FIX & KONSISTEN)
-====================================================== */
 .logout-btn {
     -fx-background-color: #F44336;
     -fx-text-fill: white;
@@ -72,9 +57,6 @@ Button:hover {
     -fx-background-color: #D32F2F;
 }
 
-/* ======================================================
-   PRODUCT IMAGE (CARD)
-====================================================== */
 ImageView {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 15;
@@ -86,9 +68,6 @@ ImageView {
     );
 }
 
-/* ======================================================
-   NAMA PRODUK & HARGA
-====================================================== */
 Label:not([text^="Rp"])
      :not([text="SHOP ALL"])
      :not([text="DONAT KELILING (DOLI)"]) {
@@ -103,16 +82,13 @@ Label[text^="Rp"] {
     -fx-text-fill: #FFD54F;
 }
 
-/* ======================================================
-   BUY BUTTON (KUNING CLEAN)
-====================================================== */
 Button[text="BUY"] {
     -fx-background-color: #FFD54F;
     -fx-text-fill: #000000;
     -fx-font-size: 13px;
     -fx-font-weight: 900;
     -fx-background-radius: 20;
-    -fx-border-color: transparent;   /* ❌ outline ilang */
+    -fx-border-color: transparent;
     -fx-padding: 8 30;
     -fx-effect: dropshadow(
         gaussian,
@@ -122,15 +98,12 @@ Button[text="BUY"] {
 }
 
 Button[text="BUY"]:hover {
-    -fx-background-color: #FFC107;   /* kuning lebih gelap */
+    -fx-background-color: #FFC107;
     -fx-text-fill: #1A237E;
     -fx-scale-x: 1.08;
     -fx-scale-y: 1.08;
 }
 
-/* ======================================================
-   TRANSISI
-====================================================== */
 Button, ImageView {
     -fx-transition: all 0.2s ease-in-out;
 }

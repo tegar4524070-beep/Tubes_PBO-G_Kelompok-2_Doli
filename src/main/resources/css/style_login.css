@@ -19,18 +19,15 @@
     -fx-padding: 8 36;
     -fx-cursor: hand;
 
-    /* animasi halus */
     -fx-transition: all 0.2s ease;
 }
 
-/* hover */
 .primary-btn:hover {
     -fx-background-color: #1976D2;
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.05;
 }
 
-/* ditekan */
 .primary-btn:pressed {
     -fx-scale-x: 0.97;
     -fx-scale-y: 0.97;

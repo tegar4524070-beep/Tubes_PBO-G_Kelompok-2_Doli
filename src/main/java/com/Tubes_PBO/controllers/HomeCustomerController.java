@@ -16,12 +16,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 
-public class HomeCustomerController {
+public class HomeCustomerController extends BaseController {
 
-    /* =========================
-       BUTTON HEADER
-       ========================= */
-
+    // Visibility : Menggunakan Private //
     @FXML
     private void ALL(ActionEvent event) {
         System.out.println("ALL clicked (Customer)");
@@ -37,21 +34,14 @@ public class HomeCustomerController {
         goToOrderPage();
     }
 
-    /* =========================
-       SEARCH
-       ========================= */
     @FXML
     private void searchDonut(ActionEvent event) {
         showAlert("Fitur search masih dalam pengembangan");
     }
 
-    /* =========================
-       BUTTON BUY (MULTI BUY + POPUP)
-       ========================= */
     @FXML
     private void buyProduct(ActionEvent event) {
 
-        // Cek login
         if (UserSession.getUser() == null) {
             showAlert("Silakan login terlebih dahulu");
             return;
@@ -59,9 +49,9 @@ public class HomeCustomerController {
 
         Button btn = (Button) event.getSource();
         int productId = Integer.parseInt(btn.getUserData().toString());
+        // Asosiasi : Menggunakan DAO dan Utils //
         int userId = UserSession.getUser().getId();
 
-        // Popup input jumlah
         TextInputDialog dialog = new TextInputDialog("1");
         dialog.setTitle("Buy Donut");
         dialog.setHeaderText("Masukkan jumlah donat");
@@ -77,7 +67,8 @@ public class HomeCustomerController {
                     showAlert("Jumlah harus lebih dari 0");
                     return;
                 }
-
+                
+                // Asosiasi : Menggunakan DAO dan Utils //
                 boolean success = OrderDAO.addProductToOrder(userId, productId, qty);
 
                 if (success) {
@@ -91,10 +82,6 @@ public class HomeCustomerController {
             }
         }
     }
-
-    /* =========================
-       NAVIGATION
-       ========================= */
 
     @FXML
     private void goToOrderPage() {
@@ -110,15 +97,14 @@ private void goToHistory(ActionEvent event) {
     private void goToHome(ActionEvent event) {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            // Asosiasi : Menggunakan DAO dan Utils //
             SceneSwitcher.switchScene(stage, "/fxml/HomeCustomer.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    /* =========================
-       ALERT HELPER
-       ========================= */
+    
+    // Visibility : Menggunakan private //
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Info");
@@ -132,5 +118,5 @@ private void handleLogout(ActionEvent event) {
     Node source = (Node) event.getSource();
     LogoutUtil.logout(source);
 }
-
+    // Asosiasi : Menggunakan DAO dan Utils //
 }
