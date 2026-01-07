@@ -11,7 +11,8 @@
 <AnchorPane xmlns="http://javafx.com/javafx/20"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.Tubes_PBO.controllers.HomeKaryawanController"
-            prefHeight="697.0" prefWidth="800.0">
+            prefHeight="697.0" prefWidth="800.0"
+            stylesheets="@/css/style_HomeKaryawan.css">
 
    <children>
 
@@ -29,13 +30,25 @@
       </Label>
 
       <!-- BUTTONS -->
-      <Button layoutX="174" layoutY="153" text="PRODUCTS" prefWidth="99" disable="true"/>
-      <Button layoutX="287" layoutY="153" text="STOCK" prefWidth="99" onAction="#goToStock"/>
-      <Button layoutX="398" layoutY="153" text="ORDER" prefWidth="99" onAction="#goToOrders"/>
-       <Button text="Logout"
-        onAction="#handleLogout"
-        style="-fx-background-color: #f44336;
-               -fx-text-fill: white;" />
+      <Button layoutX="174" layoutY="153"
+            prefWidth="110"
+            text="PRODUCTS"
+            disable="true"/>
+
+      <Button layoutX="345" layoutY="153"
+            prefWidth="110"
+            text="STOCK"
+            onAction="#goToStock"/>
+
+      <Button layoutX="512" layoutY="153"
+            prefWidth="110"
+            text="ORDER"
+            onAction="#goToOrders"/>
+
+            <Button text="Logout"
+            onAction="#handleLogout"
+            style="-fx-background-color: #f44336;
+                     -fx-text-fill: white;" />
 
 
       <!-- IMAGES ROW 1 -->

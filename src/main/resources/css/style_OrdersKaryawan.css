@@ -1,0 +1,120 @@
+/* ======================================================
+   ROOT / BACKGROUND
+====================================================== */
+.root {
+    -fx-background-color: linear-gradient(
+        to bottom right,
+        #1565C0 0%,
+        #1E88E5 45%,
+        #FFD54F 150%
+    );
+    -fx-font-family: "Segoe UI", Arial;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Arial Black";
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0, 2, 2);
+}
+
+.header-subtitle {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Black";
+}
+
+.header-tags {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Black";
+}
+
+/* ======================================================
+   BUTTON BASE
+====================================================== */
+.button {
+    -fx-background-color: #FFD54F;
+    -fx-text-fill: #1A237E;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 8 24;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0, 0, 3);
+}
+
+.button:hover {
+    -fx-background-color: #FFC107;
+    -fx-text-fill: #0D47A1;
+}
+
+/* ======================================================
+   LOGOUT BUTTON
+====================================================== */
+.logout-btn {
+    -fx-background-color: #F44336;
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+}
+
+.logout-btn:hover {
+    -fx-background-color: #D32F2F;
+}
+
+/* ======================================================
+   ORDER CARD
+====================================================== */
+.order-card {
+    -fx-background-color: rgba(255,255,255,0.18);
+    -fx-background-radius: 18;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 18, 0, 0, 8);
+}
+
+/* ======================================================
+   TABLE VIEW
+====================================================== */
+.order-table {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: rgba(21, 101, 192, 0.85);
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-size: 35px;
+    -fx-border-width: 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: rgba(255,255,255,0.85);
+}
+
+.table-row-cell:odd {
+    -fx-background-color: rgba(245,245,245,0.9);
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #FFD54F;
+}
+
+/* ======================================================
+   LABEL DEFAULT
+====================================================== */
+.label {
+    -fx-text-fill: white;
+}

@@ -7,7 +7,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Tubes_PBO.controllers.OrdersKaryawanController">
+<AnchorPane prefHeight="697.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Tubes_PBO.controllers.OrdersKaryawanController"
+stylesheets="@/css/style_OrdersKaryawan.css">
 
    <children>
 
@@ -26,8 +27,8 @@
 
       <!-- TOP BUTTON -->
       <Button layoutX="174" layoutY="153" onAction="#goToHome" prefWidth="99" text="PRODUCTS" />
-        <Button layoutX="345" layoutY="153" onAction="#goToStock" prefWidth="99" text="ORDER" />
-        <Button layoutX="512" layoutY="153" prefWidth="99" text="HISTORY" />
+        <Button layoutX="345" layoutY="153" onAction="#goToStock" prefWidth="99" text="STOCK" />
+        <Button layoutX="512" layoutY="153" prefWidth="99" text="ORDER" />
         <Button text="Logout"
         onAction="#handleLogout"
         style="-fx-background-color: #f44336;
