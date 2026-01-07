@@ -10,7 +10,8 @@
 <AnchorPane prefHeight="697.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.Tubes_PBO.controllers.StockKaryawanController">
+            fx:controller="com.Tubes_PBO.controllers.StockKaryawanController"
+            stylesheets="@/css/style_StockKaryawan.css">
 
     <children>
 
@@ -28,23 +29,32 @@
       </Label>
 
         <!-- NAVIGATION -->
-        <Button layoutX="174" layoutY="120" text="PRODUCTS" prefWidth="99"
-                onAction="#goToHome"/>
+        <Button layoutX="174" layoutY="153"
+            prefWidth="110"
+            text="PRODUCTS"
+            onAction="#goToHome"/>
 
-        <Button layoutX="287" layoutY="120" text="STOCK" prefWidth="99"
+        <Button layoutX="345" layoutY="153"
+                prefWidth="110"
+                text="STOCK"
                 disable="true"/>
 
-        <Button layoutX="400" layoutY="120" text="ORDER" prefWidth="99"
+        <Button layoutX="512" layoutY="153"
+                prefWidth="110"
+                text="ORDER"
                 onAction="#goToOrders"/>
-                 <Button text="Logout"
-        onAction="#handleLogout"
-        style="-fx-background-color: #f44336;
-               -fx-text-fill: white;" />
+
+        <Button text="Logout"
+            layoutX="20"
+            layoutY="20"
+            onAction="#handleLogout"
+            styleClass="logout-btn"/>
+
 
         <!-- TABLE STOCK -->
         <TableView fx:id="stockTable"
                    layoutX="100"
-                   layoutY="180"
+                   layoutY="220"
                    prefWidth="600"
                    prefHeight="420">
 

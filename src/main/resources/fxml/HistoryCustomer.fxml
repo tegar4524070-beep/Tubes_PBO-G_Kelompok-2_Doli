@@ -7,7 +7,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Tubes_PBO.controllers.OrderHistoryController">
+<AnchorPane prefHeight="697.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Tubes_PBO.controllers.OrderHistoryController"
+stylesheets="@/css/style_HistoryCustomer.css">
 
    <children>
 
@@ -29,9 +30,10 @@
         <Button layoutX="345" layoutY="153" onAction="#Order" prefWidth="99" text="ORDER" />
         <Button layoutX="512" layoutY="153" prefWidth="99" text="HISTORY" />
         <Button text="Logout"
+        layoutX="20"
+        layoutY="20"
         onAction="#handleLogout"
-        style="-fx-background-color: #f44336;
-               -fx-text-fill: white;" />
+        styleClass="logout-btn"/>
       
       <TableView fx:id="historyTable" layoutX="128.0" layoutY="231.0" prefHeight="350.0" prefWidth="544.0">
         <columns>

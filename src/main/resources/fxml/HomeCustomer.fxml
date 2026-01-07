@@ -8,7 +8,8 @@
 <AnchorPane xmlns="http://javafx.com/javafx/20"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.Tubes_PBO.controllers.HomeCustomerController"
-            prefHeight="697.0" prefWidth="800.0">
+            prefHeight="697.0" prefWidth="800.0"
+            stylesheets="@/css/style_HomeCustomer.css">
 
    <children>
 
@@ -30,9 +31,11 @@
         <Button layoutX="345" layoutY="153" prefWidth="99" text="ORDER" onAction="#Order"/>
         <Button layoutX="512" layoutY="153" prefWidth="99" text="HISTORY" onAction="#goToHistory"/>
         <Button text="Logout"
+        layoutX="20"
+        layoutY="20"
         onAction="#handleLogout"
-        style="-fx-background-color: #f44336;
-               -fx-text-fill: white;" />
+        styleClass="logout-btn"/>
+
       
 
 

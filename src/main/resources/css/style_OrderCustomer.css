@@ -1,0 +1,150 @@
+/* ======================================================
+   ROOT / BACKGROUND
+====================================================== */
+.root {
+    -fx-background-color: linear-gradient(
+        to bottom right,
+        #1565C0 0%,
+        #1E88E5 45%,
+        #FFD54F 150%
+    );
+    -fx-font-family: "Segoe UI", Arial;
+}
+
+/* ======================================================
+   HEADER (SAMA DENGAN HOME CUSTOMER)
+====================================================== */
+
+.header-title {
+    -fx-text-fill: #fefefe;
+    -fx-font-size: 24px;
+    -fx-font-weight: 900;
+    -fx-font-family: "Arial Black";
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.3),
+        4, 0, 2, 2
+    );
+}
+
+.header-subtitle {
+    -fx-text-fill: #fefefe;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Black";
+}
+
+.header-tags {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Black";
+}
+
+/* ======================================================
+   LABEL UMUM
+====================================================== */
+Label {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.total-price {
+    -fx-text-fill: #FFD54F;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* ======================================================
+   BUTTON BASE (NAV + GENERAL)
+====================================================== */
+Button {
+    -fx-background-color: #FFD54F;
+    -fx-text-fill: #1A237E;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-border-color: transparent;
+    -fx-padding: 8 24;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.25),
+        8, 0, 0, 3
+    );
+}
+
+Button:hover {
+    -fx-background-color: #FFC107;
+    -fx-text-fill: #0D47A1;
+}
+
+/* ======================================================
+   BUY BUTTON
+====================================================== */
+.buy-btn {
+    -fx-font-size: 14px;
+    -fx-font-weight: 900;
+}
+
+.buy-btn:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* ======================================================
+   CANCEL BUTTON
+====================================================== */
+.cancel-btn {
+    -fx-background-color: rgba(210, 65, 65, 0.601);
+    -fx-text-fill: white;
+}
+
+.cancel-btn:hover {
+    -fx-background-color: rgb(255, 0, 0);
+}
+
+/* ======================================================
+   LOGOUT BUTTON (SAMA WARNA HOME)
+====================================================== */
+.logout-btn {
+    -fx-background-color: #F44336;
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+    -fx-font-weight: bold;
+}
+
+.logout-btn:hover {
+    -fx-background-color: #D32F2F;
+}
+
+/* ======================================================
+   ORDER CARD
+====================================================== */
+.order-card {
+    -fx-background-color: rgba(255,255,255,0.18);
+    -fx-background-radius: 18;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0,0,0,0.35),
+        18, 0, 0, 8
+    );
+}
+
+/* ======================================================
+   SCROLLPANE
+====================================================== */
+.order-scroll {
+    -fx-background-color: transparent;
+}
+
+.order-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ======================================================
+   TRANSISI HALUS
+====================================================== */
+Button {
+    -fx-transition: all 0.2s ease-in-out;
+}
