@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 public class HomeKaryawanController {
 
+    // Visibility : Menggunakan Private //
     @FXML
     private void ALL() {
         System.out.println("ALL clicked (Karyawan)");
@@ -45,7 +46,6 @@ public class HomeKaryawanController {
     alert.showAndWait();
 }
 
-
     @FXML
     private void searchDonut() {
         System.out.println("SEARCH clicked (Karyawan)");
@@ -64,6 +64,7 @@ public class HomeKaryawanController {
         alert.show();
     }
 
+    // Visibility : Menggunakan Public //
     @FXML
 public void goToStock(ActionEvent event) {
     try {
@@ -83,12 +84,14 @@ public void goToStock(ActionEvent event) {
     }
 }
 
+// Visibility : Menggunakan Private //
 @FXML
 private void handleAddStock(ActionEvent event) {
 
     Button btn = (Button) event.getSource();
     int productId = Integer.parseInt(btn.getUserData().toString());
 
+    // Asosiasi : Menggunakan DAO, Model, dan Ultis //
     Product product = ProductDAO.getById(productId);
 
     if (product == null) {
@@ -101,6 +104,7 @@ private void handleAddStock(ActionEvent event) {
     dialog.setHeaderText("Produk: " + product.getProductName());
     dialog.setContentText("Masukkan jumlah stock:");
 
+    // Anonymous Class : Menggunakan Lambda Expression //
     dialog.showAndWait().ifPresent(value -> {
         try {
             int tambahan = Integer.parseInt(value);
@@ -110,6 +114,7 @@ private void handleAddStock(ActionEvent event) {
                 return;
             }
 
+            // Asosiasi : Menggunakan DAO, Model, dan Ultis //
             ProductDAO.addStock(productId, tambahan);
             showAlert("Stock berhasil ditambahkan");
 
@@ -121,12 +126,14 @@ private void handleAddStock(ActionEvent event) {
 
 @FXML
 private void goToOrders() {
+    // Asosiasi : Menggunakan DAO, Model, dan Ultis //
     App.changeScene("/fxml/OrdersKaryawan.fxml");
 }
 
 @FXML
 private void handleLogout(ActionEvent event) {
     Node source = (Node) event.getSource();
+    // Asosiasi : Menggunakan DAO, Model, dan Ultis //
     LogoutUtil.logout(source);
 }
 

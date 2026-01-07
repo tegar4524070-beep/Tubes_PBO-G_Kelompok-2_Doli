@@ -22,9 +22,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+// Interface : Menggunakan Initializable //
 public class OrderHistoryController implements Initializable {
 
+    // Visibility : Menggunakan Private //
     @FXML private TableView<Order> historyTable;
+    // Visibility : Menggunakan Private //
     @FXML private TableColumn<Order, Integer> colOrderId;
     @FXML private TableColumn<Order, String> colDate;
     @FXML private TableColumn<Order, Double> colTotal;
@@ -33,13 +36,13 @@ public class OrderHistoryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        // Asosiasi : Menggunakan DAO, Model, dan Utils //
         if (UserSession.getUser() == null) {
             Alert alert = new Alert(AlertType.ERROR, "User belum login!");
             alert.show();
             return;
         }
 
-        // Mapping kolom
         colOrderId.setCellValueFactory(
                 new PropertyValueFactory<>("id")
         );
@@ -52,6 +55,8 @@ public class OrderHistoryController implements Initializable {
                 new PropertyValueFactory<>("status")
         );
 
+        // Polimorpisme : Menggunakan Node dan Callback //
+        // Anonymous Class : Menggunakan Lambda Expression //
         colDate.setCellValueFactory(cell -> {
             Timestamp t = cell.getValue().getCreatedAt();
             return new SimpleStringProperty(
@@ -62,14 +67,14 @@ public class OrderHistoryController implements Initializable {
             );
         });
 
-        // Load data
         int userId = UserSession.getUser().getId();
+        // Asosiasi : Menggunakan DAO, Model, dan Utils //
         historyTable.getItems().setAll(
                 OrderDAO.getOrderHistory(userId)
         );
     }
 
-    // ================= NAVIGATION =================
+    // Visibility : Menggunakan Private //
     @FXML
     private void goToHome() {
         App.changeScene("/fxml/HomeCustomer.fxml");
@@ -80,9 +85,13 @@ public class OrderHistoryController implements Initializable {
         App.changeScene("/fxml/OrderCustomer.fxml");
     }
 
+    // Visibility : Menggunakan Private //
     @FXML
 private void handleLogout(ActionEvent event) {
+    // Polimorpisme : Menggunakan Node dan Callback //
     Node source = (Node) event.getSource();
+    // Asosiasi : Menggunakan DAO, Model, dan Utils //
     LogoutUtil.logout(source);
 }
+
 }

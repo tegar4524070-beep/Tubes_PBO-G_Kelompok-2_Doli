@@ -10,25 +10,33 @@ import javafx.stage.Stage;
 
 public class RoleLogincontroller {
 
+    // Visibility : Menggunakan Private //
     @FXML
     private void onCustomerClick() {
+        // Asosiasi : Menggunakan App, Stage, dan FXMLLoader //
         App.setRole("customer");
+        // Asosiasi : Menggunakan App, Stage, dan FXMLLoader //
         App.changeScene("/fxml/Login.fxml");
     }
 
+    // Visibility : Menggunakan Private //
     @FXML
     private void onKaryawanClick() {
         App.setRole("karyawan");
+        // Asosiasi : Menggunakan App, Stage, dan FXMLLoader //
         App.changeScene("/fxml/Login.fxml");
     }
 
+    // Visibility : Menggunakan Private //
     @FXML
 private void openRegisterPopup() {
     try {
+        // Asosiasi : Menggunakan App, Stage, dan FXMLLoader //
         FXMLLoader loader = new FXMLLoader(
             getClass().getResource("/fxml/RegisterPopup.fxml")
         );
 
+        // Asosiasi : Menggunakan App, Stage, dan FXMLLoader //
         Stage popupStage = new Stage();
         popupStage.setScene(new Scene(loader.load()));
         popupStage.setTitle("Registrasi");

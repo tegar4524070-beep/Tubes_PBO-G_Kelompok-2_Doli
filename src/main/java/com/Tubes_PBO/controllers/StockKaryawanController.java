@@ -22,15 +22,20 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+// Interface : Menggunakan Initializable //
+// Inheritance : Menggunakan implement //
 public class StockKaryawanController implements Initializable {
 
+    // Visibility : Menggunakan Private //
     @FXML private TableView<Product> stockTable;
+    // Visibility : Menggunakan Private //
     @FXML private TableColumn<Product, Integer> colId;
     @FXML private TableColumn<Product, String> colName;
     @FXML private TableColumn<Product, Double> colPrice;
     @FXML private TableColumn<Product, Integer> colStock;
     @FXML private TableColumn<Product, Void> colAction;
 
+    // Visibility : Menggunakan Private //
     private ObservableList<Product> productList;
 
     @Override
@@ -39,6 +44,7 @@ public class StockKaryawanController implements Initializable {
         loadProducts();
     }
 
+    // Visibility : Menggunakan Private //
     private void setupTable() {
     colId.setCellValueFactory(new PropertyValueFactory<>("productId"));
     colName.setCellValueFactory(new PropertyValueFactory<>("productName"));
@@ -48,23 +54,25 @@ public class StockKaryawanController implements Initializable {
     addButtonToTable();
 }
 
+    // Visibility : Menggunakan Private //
     private void loadProducts() {
+        // Asosiasi : Menggunakan DAO, Model, dan Utils //
         productList = FXCollections.observableArrayList(
                 ProductDAO.getAllProducts()
         );
         stockTable.setItems(productList);
     }
 
-    // ======================
-    // ADD STOCK BUTTON
-    // ======================
     private void addButtonToTable() {
 
+        // Nested Class : Menggunakan TableCell anonymous //
+        // Anonymous Class: Menggunakan Anonymous dan Lambda //
         colAction.setCellFactory(param -> new TableCell<>() {
 
             private final Button btn = new Button("ADD");
 
             {
+                // Anonymous Class: Menggunakan Anonymous dan Lambda //
                 btn.setOnAction(event -> {
                     Product product = getTableView()
                             .getItems()
@@ -74,6 +82,7 @@ public class StockKaryawanController implements Initializable {
                 });
             }
 
+            // Polimorfisme : Menggunakan Override dan casting //
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
@@ -87,9 +96,6 @@ public class StockKaryawanController implements Initializable {
         });
     }
 
-    // ======================
-    // POPUP ADD STOCK
-    // ======================
     private void showAddStockDialog(Product product) {
 
         TextInputDialog dialog = new TextInputDialog();
@@ -97,6 +103,7 @@ public class StockKaryawanController implements Initializable {
         dialog.setHeaderText("Produk: " + product.getProductName());
         dialog.setContentText("Masukkan jumlah stock:");
 
+        // Anonymous Class: Menggunakan Anonymous dan Lambda //
         dialog.showAndWait().ifPresent(value -> {
             try {
                 int tambahan = Integer.parseInt(value);
@@ -106,8 +113,9 @@ public class StockKaryawanController implements Initializable {
                     return;
                 }
 
+                // Asosiasi : Menggunakan DAO, Model, dan Utils //
                 ProductDAO.addStock(product.getProductId(), tambahan);
-                loadProducts(); // refresh table
+                loadProducts();
 
             } catch (NumberFormatException e) {
                 showAlert("Input harus angka");
@@ -115,11 +123,9 @@ public class StockKaryawanController implements Initializable {
         });
     }
 
-    // ======================
-    // NAVIGATION
-    // ======================
     @FXML
     private void goToHome() {
+        // Asosiasi : Menggunakan DAO, Model, dan Utils //
         App.changeScene("/fxml/HomeKaryawan.fxml");
     }
 
@@ -128,9 +134,7 @@ public class StockKaryawanController implements Initializable {
         App.changeScene("/fxml/OrdersKaryawan.fxml");
     }
 
-    // ======================
-    // ALERT
-    // ======================
+    // Visibility : Menggunakan Private //
     private void showAlert(String msg) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Info");
@@ -141,7 +145,9 @@ public class StockKaryawanController implements Initializable {
 
     @FXML
 private void handleLogout(ActionEvent event) {
+    // Polimorfisme : Menggunakan Override dan casting //
     Node source = (Node) event.getSource();
+    // Asosiasi : Menggunakan DAO, Model, dan Utils //
     LogoutUtil.logout(source);
 }
 }
